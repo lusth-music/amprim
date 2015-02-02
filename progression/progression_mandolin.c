@@ -38,17 +38,20 @@ BEGIN:
     ci4(1,Q,instrument,octave+1);
     ci4(1,W,instrument,octave+1);
 
+    //b(1, Q, instrument, octave, "--x", "-x-", "x--", SX);
 
     rest(I);
 
-    ci4(1,Q,instrument,octave+1);
+    //ci4(1,Q,instrument,octave+1);
+    b(1, Q, instrument, octave, "--x", "-x-", "x--", SX);
     c(4,H,instrument,octave-1);
     ci2(4,Q,instrument,octave);
     ci4(4,W,instrument,octave);
 
     rest(I);
 
-    ci2(4,Q,instrument,octave-1);
+    //ci2(4,Q,instrument,octave-1);
+    b(4, Q, instrument, octave-1, "--x", "-x-", "x--", SX);
     c(6,H,instrument,octave-1);
     ci2(6,Q,instrument,octave);
     ci4(6,W,instrument,octave);
@@ -76,7 +79,8 @@ END:
     ci4(5,Q,instrument,octave);
     ci4(5,Q,instrument,octave);
     c(1,H,instrument,octave);
-
+    rest(beatsToMeasures(1));
+    b(1, H, instrument, octave-1, "--x", "-x-", "x--", SX);
 
     closeOutput();
 

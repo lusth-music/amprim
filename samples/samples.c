@@ -48,7 +48,7 @@ int main(){
     length = H;
 
     openOutput("samples.rra",0,0);
-    goto SOT;
+    //goto SOT;
 
     //Kiddie Piano
     nplay(length, kiddie, C6);

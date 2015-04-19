@@ -1,7 +1,7 @@
 #Place the names of all your tracks here (as RRA filenames)
 
-RRA = composition_guitar.rra composition_mandolin.rra composition_piano.rra
-SRRA = s-composition_guitar.rra s-composition_mandolin.rra s-composition_piano.rra
+RRA = composition_guitar.rra composition_drums.rra composition_mandolin.rra
+SRRA = s-composition_guitar.rra s-composition_drums.rra s-composition_mandolin.rra
 INCLUDE=/usr/local/include/songlib/
 LIB=/usr/local/lib/
 

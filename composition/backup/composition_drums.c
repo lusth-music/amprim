@@ -35,7 +35,7 @@ int main(){
 
     instrument = readScale(dir,base);
 
-    setTempo(250);
+    setTempo(300);
     setTime(4,4);
     setStride(0.05);
     setSustain(0.99995);

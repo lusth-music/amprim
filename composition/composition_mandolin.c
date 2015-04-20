@@ -36,7 +36,7 @@ int main(){
 
     instrument = readScale(dir,base);
 
-    setTempo(250);
+    setTempo(175);
     setTime(4,4);
     setStride(0.05);
     setSustain(0.99995);
@@ -44,10 +44,7 @@ int main(){
 
     openOutput("composition_mandolin.rra",0,0);
 
-    intro();
-    intro();
-    intro();
-    verse();
+
     verse();
     //refrain();
     //verse();
@@ -92,38 +89,43 @@ int intro(){
 }
 
 int verse(){
-	b(1, H, instrument, octave-1, "x--", "-x-", "x--", SX);
-    b(1, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
-    b(1, H, instrument, octave-1, "--x", "-x-", "--x", SX);
-    b(1, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
+	b(1, H, instrument, octave, "x--", "-x-", "x--", SX);
+    b(1, H, instrument, octave, "-x-", "--x", "-x-", SX);
+    b(6, H, instrument, octave, "--x", "-x-", "--x", SX);
+    b(6, H, instrument, octave, "-x-", "--x", "-x-", SX);
+    //b(4, H, instrument, octave, "x--", "-x-", "x--", SX);
 
-    c(1, H, instrument, octave+1);
-    c(4, H, instrument, octave+1);
+//   	nplay(H, instrument, C2);
+//    c(4, H, instrument, octave);
 
     b(4, H, instrument, octave-1, "x--", "-x-", "x--", SX);
     b(4, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
-    b(4, H, instrument, octave-1, "--x", "-x-", "--x", SX);
-    b(4, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
-
-    c(4, H, instrument, octave+1);
-    c(6, H, instrument, octave+1);
-
-    b(6, H, instrument, octave-1, "x--", "-x-", "x--", SX);
-    b(6, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
-    b(6, H, instrument, octave-1, "--x", "-x-", "--x", SX);
-    b(6, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
-
-    c(6, H, instrument, octave+1);
-    c(5, H, instrument, octave+1);
-
-    b(5, H, instrument, octave-1, "x--", "-x-", "x--", SX);
-    b(5, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
     b(5, H, instrument, octave-1, "--x", "-x-", "--x", SX);
     b(5, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
+    //b(6, H, instrument, octave-1, "x--", "-x-", "x--", SX);
 
-    c(5, H, instrument, octave+1);
-    c(1, H, instrument, octave+1);
+//    nplay(H, instrument, F2);
+//    c(6, H, instrument, octave);
 
+    b(6, H, instrument, octave, "x--", "-x-", "x--", SX);
+    b(6, H, instrument, octave, "-x-", "--x", "-x-", SX);
+    b(1, H, instrument, octave, "--x", "-x-", "--x", SX);
+    b(1, H, instrument, octave, "-x-", "--x", "-x-", SX);
+    //b(5, H, instrument, octave, "x--", "-x-", "x--", SX);
+
+//    nplay(H, instrument, A2);
+//    c(5, H, instrument, octave);
+
+    b(5, H, instrument, octave, "x--", "-x-", "x--", SX);
+    b(5, H, instrument, octave, "-x-", "--x", "-x-", SX);
+    b(4, H, instrument, octave, "--x", "-x-", "--x", SX);
+    b(4, H, instrument, octave, "-x-", "--x", "-x-", SX);
+   // b(1, H, instrument, octave, "x--", "-x-", "x--", SX);
+
+//    nplay(H, instrument, G2);
+//    c(1, H, instrument, octave);
+
+    
     return 0;
 }
 

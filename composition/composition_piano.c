@@ -36,7 +36,7 @@ int main(){
 
     instrument = readScale(dir,base);
 
-    setTempo(225);
+    setTempo(250);
     setTime(4,4);
     setStride(0.05);
     setSustain(0.99995);
@@ -46,6 +46,7 @@ int main(){
 
     //intro();
     //intro();
+    //setTempo(300);
     //verse();
     //refrain();
     //verse();
@@ -61,20 +62,33 @@ int main(){
 }
 
 int intro(){
-    nplay(H, instrument, C3);
-    nplay(H, instrument, E3);
-    nplay(H, instrument, G3);
+    octave = 4;
+
+    nplay(H, instrument, C4);
+    nplay(H, instrument, E4);
+    nplay(H, instrument, G4);
     c(4, H, instrument, octave);
     rest(H);
-    nplay(H, instrument, C3);
-    nplay(H, instrument, E3);
-    nplay(H, instrument, G3);
+    nplay(H, instrument, C4);
+    nplay(H, instrument, E4);
+    nplay(H, instrument, G4);
     c(6, H, instrument, octave);
     c(5, H, instrument, octave);
     rest(H);
-    nplay(H, instrument, F3);
-    nplay(H, instrument, A3);
+    nplay(H, instrument, F4);
+    nplay(H, instrument, A4);
     c(6, H, instrument, octave);
+    nplay(H, instrument, G4);
+    nplay(H, instrument, B4);
+    nplay(H, instrument, D4);
+    c(1, H, instrument, octave);
+    c(1, H, instrument, octave);
+    c(6, H, instrument, octave);
+    c(4, H, instrument, octave);
+    c(5, H, instrument, octave);
+    rest(H);
+    rest(H);
+
     return 0;
 }
 

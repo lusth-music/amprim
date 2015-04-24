@@ -1,7 +1,7 @@
 #Place the names of all your tracks here (as RRA filenames)
 
-RRA = composition_guitar.rra composition_mandolin.rra composition_piano.rra
-SRRA = s-composition_guitar.rra s-composition_mandolin.rra s-composition_piano.rra
+RRA = composition_guitar.rra composition_mandolin.rra 
+SRRA = s-composition_guitar.rra s-composition_mandolin.rra
 INCLUDE=/usr/local/include/songlib/
 LIB=/usr/local/lib/
 
@@ -22,11 +22,17 @@ play	: $(RRA)
 playmix : mix.rra
 		rplay mix.rra
 
-s-progression_mandolin.rra : progression_mandolin.rra
-		rrastereo -r progression_mandolin.rra s-progression_mandolin.rra
+s-composition_mandolin.rra : composition_mandolin.rra
+		rrastereo -r composition_mandolin.rra s-composition_mandolin.rra
 
-playmaster:  $(SRRA)
-	rrafastmixer $(SRRA) | rramaster ! rplay
+s-composition_guitar.rra : composition_guitar.rra
+		rrastereo -r composition_guitar.rra s-composition_guitar.rra
+
+s-composition_vocals.rra : composition_vocals.wav
+		wav2rra composition_vocals.wav s-composition_vocals.rra
+
+master:  $(SRRA)
+	rrafastmixer $(SRRA) | rramaster > master.rra
 
 master.rra :  $(SRRA)
 	rrafastmixer $(SRRA) | rramaster > master.rra

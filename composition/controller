@@ -1,0 +1,12 @@
+introTempo = 165; 	//175
+verseTempo = 175;	//200
+refrainTempo = 220;	//250
+
+intro();
+verse();
+refrain();
+verse();
+refrain();
+bridge();
+verse();
+refrain();

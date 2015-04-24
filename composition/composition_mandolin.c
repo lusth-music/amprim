@@ -22,12 +22,19 @@
 #define dir "/usr/local/share/samples/"
 #define base "mandolin/sample_"
 
+void intro();
+void verse();
+void refrain();
+void bridge();
+
 char *PROGRAM_NAME = "composition_mandolin";
 char *PROGRAM_VERSION = "0.01";
 
 int last = 0;
 int instrument;
 int octave = 2;
+
+int introTempo, verseTempo, refrainTempo;
 
 int main(){ 
     
@@ -44,123 +51,160 @@ int main(){
 
     openOutput("composition_mandolin.rra",0,0);
 
-
-    verse();
-    //refrain();
-    //verse();
-    //refrain();
-    //bridge();
-    //verse();
-    //refrain();
+    #include "controller"
 
     closeOutput();
 
     return 0;
 
 }
+void intro(){
+	setTempo(introTempo);
+	rest(W);
+    rest(W);
+    rest(W);
+    rest(W);
 
-int intro(){
-	rest(H);
+    setTempo(refrainTempo);
+    /*
+	nplay(H, instrument, C2);
+    nplay(H, instrument, E2);
+    nplay(H, instrument, G2);
+    c(4, H, instrument, octave);
     rest(H);
+    nplay(H, instrument, C2);
+    nplay(H, instrument, E2);
+    nplay(H, instrument, G2);
+    c(6, H, instrument, octave);
+    c(5, H, instrument, octave);
     rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
-    rest(H);
+    nplay(H, instrument, F2);
+    nplay(H, instrument, A2);
+    c(6, H, instrument, octave);
+    nplay(H, instrument, G2);
+    nplay(H, instrument, B2);
+    nplay(H, instrument, D2);
+    c(1, H, instrument, octave);
+	c(4, H, instrument, octave);
+	c(1, H, instrument, octave);
+	c(6, H, instrument, octave);
+	c(5, H, instrument, octave);
+	*/
+	
+	rest(W*12);
+	//rest(W);
+    //return 0;
 
-    return 0;
 }
 
-int verse(){
+void verse(){
+	setTempo(verseTempo);
 	b(1, H, instrument, octave, "x--", "-x-", "x--", SX);
     b(1, H, instrument, octave, "-x-", "--x", "-x-", SX);
     b(6, H, instrument, octave, "--x", "-x-", "--x", SX);
     b(6, H, instrument, octave, "-x-", "--x", "-x-", SX);
-    //b(4, H, instrument, octave, "x--", "-x-", "x--", SX);
-
-//   	nplay(H, instrument, C2);
-//    c(4, H, instrument, octave);
 
     b(4, H, instrument, octave-1, "x--", "-x-", "x--", SX);
     b(4, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
-    b(5, H, instrument, octave-1, "--x", "-x-", "--x", SX);
-    b(5, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
-    //b(6, H, instrument, octave-1, "x--", "-x-", "x--", SX);
-
-//    nplay(H, instrument, F2);
-//    c(6, H, instrument, octave);
-
-    b(6, H, instrument, octave, "x--", "-x-", "x--", SX);
-    b(6, H, instrument, octave, "-x-", "--x", "-x-", SX);
-    b(1, H, instrument, octave, "--x", "-x-", "--x", SX);
-    b(1, H, instrument, octave, "-x-", "--x", "-x-", SX);
-    //b(5, H, instrument, octave, "x--", "-x-", "x--", SX);
-
-//    nplay(H, instrument, A2);
-//    c(5, H, instrument, octave);
-
-    b(5, H, instrument, octave, "x--", "-x-", "x--", SX);
-    b(5, H, instrument, octave, "-x-", "--x", "-x-", SX);
-    b(4, H, instrument, octave, "--x", "-x-", "--x", SX);
-    b(4, H, instrument, octave, "-x-", "--x", "-x-", SX);
-   // b(1, H, instrument, octave, "x--", "-x-", "x--", SX);
-
-//    nplay(H, instrument, G2);
-//    c(1, H, instrument, octave);
-
-    
-    return 0;
-}
-
-int refrain(){
-
-	nplay(H, instrument, C4);
-    nplay(H, instrument, E4);
-    nplay(H, instrument, G4);
-
-    return 0;
-}
-
-int bridge(){
-
-	return 0;
-}
-
-    /*b(1, H, instrument, octave, "--x", "-x-", "--x", SX);
-    b(1, H, instrument, octave, "-x-", "--x", "-x-", SX);
-    b(1, H, instrument, octave, "x--", "-x-", "x--", SX);
-    b(1, H, instrument, octave, "-x-", "--x", "-x-", SX);
-
-    b(4, H, instrument, octave, "--x", "-x-", "--x", SX);
-    b(4, H, instrument, octave, "-x-", "--x", "-x-", SX);
-    b(4, H, instrument, octave, "x--", "-x-", "x--", SX);
-    b(4, H, instrument, octave, "-x-", "--x", "-x-", SX);
-
-    b(6, H, instrument, octave, "--x", "-x-", "--x", SX);
-    b(6, H, instrument, octave, "-x-", "--x", "-x-", SX);
-    b(6, H, instrument, octave, "x--", "-x-", "x--", SX);
-    b(6, H, instrument, octave, "-x-", "--x", "-x-", SX);
-
     b(5, H, instrument, octave, "--x", "-x-", "--x", SX);
     b(5, H, instrument, octave, "-x-", "--x", "-x-", SX);
+
+    b(6, H, instrument, octave-1, "x--", "-x-", "x--", SX);
+    b(6, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
+    b(1, H, instrument, octave, "--x", "-x-", "--x", SX);
+    b(1, H, instrument, octave, "-x-", "--x", "-x-", SX);
+
     b(5, H, instrument, octave, "x--", "-x-", "x--", SX);
-    b(5, H, instrument, octave, "-x-", "--x", "-x-", SX);*/
+    b(5, H, instrument, octave, "-x-", "--x", "-x-", SX);
+    b(4, H, instrument, octave, "--x", "-x-", "--x", SX);
+    b(4, H, instrument, octave, "-x-", "--x", "-x-", SX);
+
+    b(1, H, instrument, octave, "x--", "-x-", "x--", SX);
+    b(1, H, instrument, octave, "-x-", "--x", "-x-", SX);
+    b(6, H, instrument, octave, "--x", "-x-", "--x", SX);
+    b(6, H, instrument, octave, "-x-", "--x", "-x-", SX);
+
+    b(4, H, instrument, octave-1, "x--", "-x-", "x--", SX);
+    b(4, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
+    b(5, H, instrument, octave, "--x", "-x-", "--x", SX);
+    b(5, H, instrument, octave, "-x-", "--x", "-x-", SX);
+
+    b(6, H, instrument, octave-1, "x--", "-x-", "x--", SX);
+    b(6, H, instrument, octave-1, "-x-", "--x", "-x-", SX);
+    b(1, H, instrument, octave, "--x", "-x-", "--x", SX);
+    b(1, H, instrument, octave, "-x-", "--x", "-x-", SX);
+
+    b(5, H, instrument, octave, "x--", "-x-", "x--", SX);
+    b(5, H, instrument, octave, "-x-", "--x", "-x-", SX);
+    
+
+}
+
+void refrain(){
+
+	setTempo(refrainTempo);
+    rest(W*24.5);
+
+}
+
+void bridge(){
+
+	setTempo(refrainTempo);
+	//octave = 1;
+
+	//nplay(H, instrument, C2);
+    //rest(H);rest(H);
+
+	nplay(H, instrument, C2);
+    nplay(H, instrument, E2);
+    nplay(H, instrument, G2);
+    c(4, H, instrument, octave);
+    rest(H);
+    nplay(H, instrument, C2);
+    nplay(H, instrument, E2);
+    nplay(H, instrument, G2);
+    c(6, H, instrument, octave);
+    c(5, H, instrument, octave);
+    rest(H);
+    nplay(H, instrument, F2);
+    nplay(H, instrument, A2);
+    c(6, H, instrument, octave);
+    nplay(H, instrument, G2);
+    nplay(H, instrument, B2);
+    nplay(H, instrument, D2);
+    c(1, H, instrument, octave);
+	c(4, H, instrument, octave);
+	//c(1, H, instrument, octave);
+	c(6, H, instrument, octave);
+	c(5, H, instrument, octave);
+
+	rest(W);
+
+	nplay(H, instrument, C2);
+    nplay(H, instrument, E2);
+    nplay(H, instrument, G2);
+    c(4, H, instrument, octave);
+    rest(H);
+    nplay(H, instrument, C2);
+    nplay(H, instrument, E2);
+    nplay(H, instrument, G2);
+    c(6, H, instrument, octave);
+    c(5, H, instrument, octave);
+    rest(H);
+    nplay(H, instrument, F2);
+    nplay(H, instrument, A2);
+    c(6, H, instrument, octave);
+    nplay(H, instrument, G2);
+    nplay(H, instrument, B2);
+    nplay(H, instrument, D2);
+    c(1, H, instrument, octave);
+    //c(1, H, instrument, octave);
+    c(6, H, instrument, octave);
+    c(4, H, instrument, octave);
+    c(5, H, instrument, octave);
+    rest(H);
+    rest(H);
+}
+
 
 //and that's it. There's nothing else here. :)
